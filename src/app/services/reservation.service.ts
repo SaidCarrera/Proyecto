@@ -22,13 +22,16 @@ export class ReservationService {
   }
 
   private initializeDemoData(): void {
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 15); // 15 days ago
+
     const demoReservations: Reservation[] = [
       {
         id: '1',
         userId: '1',
         bookId: '1',
-        startDate: new Date(),
-        endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+        startDate: new Date(pastDate),
+        endDate: new Date(pastDate.setDate(pastDate.getDate() + 7)),
         status: 'active',
         user: {
           id: '1',
@@ -39,6 +42,44 @@ export class ReservationService {
           id: '1',
           title: 'The Great Gatsby',
           author: 'F. Scott Fitzgerald'
+        },
+        createdAt: new Date()
+      },
+      {
+        id: '2',
+        userId: '2',
+        bookId: '2',
+        startDate: new Date(pastDate.setDate(pastDate.getDate() - 20)),
+        endDate: new Date(pastDate.setDate(pastDate.getDate() + 7)),
+        status: 'active',
+        user: {
+          id: '2',
+          username: 'User',
+          email: 'user@library.com'
+        },
+        book: {
+          id: '2',
+          title: '1984',
+          author: 'George Orwell'
+        },
+        createdAt: new Date()
+      },
+      {
+        id: '3',
+        userId: '2',
+        bookId: '3',
+        startDate: new Date(pastDate.setDate(pastDate.getDate() - 10)),
+        endDate: new Date(pastDate.setDate(pastDate.getDate() + 7)),
+        status: 'active',
+        user: {
+          id: '2',
+          username: 'User',
+          email: 'user@library.com'
+        },
+        book: {
+          id: '3',
+          title: 'To Kill a Mockingbird',
+          author: 'Harper Lee'
         },
         createdAt: new Date()
       }

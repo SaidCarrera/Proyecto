@@ -36,6 +36,10 @@ import { RecentActivitiesComponent } from '../dashboard/activities/recent-activi
             <mat-icon>book_online</mat-icon>
             Manage Reservations
           </button>
+          <button mat-raised-button color="warn" routerLink="/admin/overdue-reports">
+            <mat-icon>report_problem</mat-icon>
+            Overdue Reports
+          </button>
         </div>
       </header>
 
